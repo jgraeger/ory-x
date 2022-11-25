@@ -93,9 +93,15 @@
           "additionalProperties": false,
           "description": "Configures the OTLP tracing backend.",
           "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "The transport protocol used by the OTLP exporter to send spans to a collector.",
+              "enum": ["grpc", "http/protobuf"],
+              "examples": ["http/protobuf"]
+            },
             "server_url": {
               "type": "string",
-              "description": "The endpoint of the OTLP exporter (HTTP) where spans should be sent to.",
+              "description": "The endpoint of the OTLP exporter where spans should be sent to.",
               "anyOf": [
                 {
                   "title": "IPv6 Address and Port",
@@ -114,7 +120,7 @@
             },
             "insecure": {
               "type": "boolean",
-              "description": "Will use HTTP if set to true; defaults to HTTPS."
+              "description": "Will use HTTP/disable transport security if set to true; defaults to HTTPS/secure."
             },
             "sampling": {
               "type": "object",
