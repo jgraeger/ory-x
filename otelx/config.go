@@ -20,6 +20,7 @@ type ZipkinConfig struct {
 }
 
 type OTLPConfig struct {
+	Protocol  string       `json:"protocol"`
 	ServerURL string       `json:"server_url"`
 	Insecure  bool         `json:"insecure"`
 	Sampling  OTLPSampling `json:"sampling"`
